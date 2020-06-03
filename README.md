@@ -43,14 +43,14 @@ Running the random search algorithm about 50 times has resulted in cross-validat
 ## Bayesian hyperparameter optimization
 Contrary to random search, this approach considers the performance of previously selected hyperparameters when selecting which hyperparameters to try next.
 
-Bayesian optimization finds the the loss that minimizes an objective function. It does this by building a surrogate function (probability model) that is built from past evaluation results of the objective function. The surrogate function is much cheaper to evaluate than the objective function. Values returned from the surrogate function are selected using an expected improvement criterion.
+Bayesian optimization finds the loss that minimizes an objective function. It does this by building a surrogate function (probability model) that is built from past evaluation results of the objective function. The surrogate function is much cheaper to evaluate than the objective function. Values returned from the surrogate function are selected using an expected improvement criterion.
 
 The process can be described like this:
-1. Build a surrogate probability model of the objective function
-2. Find the hyperparameters that perform best on the surrogate
-3. Apply these hyperparameters to the true objective function
-4. Update the surrogate model incorporating the new results
-5. Repeat steps 2–4 until max iterations or time is reached
+1. Build a surrogate probability model of the objective function.
+2. Find the hyperparameters that perform best on the surrogate.
+3. Apply these hyperparameters to the true objective function.
+4. Update the surrogate model incorporating the new results.
+5. Repeat steps 2–4 until max iterations or time is reached.
 
 I have used 1 - cross validation accuracy as the the value returned by the objective function, and the loss to be minimized. 
 
@@ -64,7 +64,7 @@ In the table above, you can see results from running the bayesian optimizer with
 <br />
 
 ## Conclusions
-Both random search and bayesian optimization result in much better accuracies on the cross-valiation set compared with manual tuning.
+Both random search and bayesian optimization result in much better accuracies on the cross-validation set compared with manual tuning.
 
 Bayesian optimization performed only a little bit better than random search. This is likely due to the small dataset, as it easier to get "lucky" with less data. 
 
